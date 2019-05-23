@@ -1,0 +1,12 @@
+---
+title: "Brazil Municipalities Analysis"
+author: "Luis Aragon"
+date: "5/23/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
