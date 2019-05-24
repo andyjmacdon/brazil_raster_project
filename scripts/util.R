@@ -1,7 +1,6 @@
 library("landscapemetrics")
 library("raster")
 library("rgdal")
-library("dplyr")
 
 raster.to.ESPG.3857 <- function(raster1){
   mercatorCRS <- CRS("+init=epsg:3857")

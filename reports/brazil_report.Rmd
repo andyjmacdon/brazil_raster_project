@@ -1,6 +1,6 @@
 ---
 title: "Brazil Municipalities Analysis"
-author: "Luis Aragon"
+author: "Project Workflow"
 date: "5/23/2019"
 output: pdf_document
 ---
@@ -8,6 +8,10 @@ output: pdf_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+This is a workflow for raster data given a .TIF file or any raster format. This project come with the `here` package which will automatically set the directory to where this R project is located. There is no need to reset directories if you move the project from computer to computer. Additionally, the 'packrat' folder will automcatically install the packages needed for the project.
+
+There is a `util.R` package which currently contatins frequent functions used for the workflow such as `raster.to.ESPG.3857(raster1 = )` which transforms most rasters from any projection to ESPG 3857 with a resolution of 30 meters.
 
 ```{r}
 # Necessary Libraries
@@ -33,7 +37,7 @@ crs(geeRaster)
 
 ```{r}
 # Transform our raster: EPSG 4326 --> EPSG 3857
-# function used: raster.to.ESPG.3857(raster)
+# function used: raster.to.ESPG.3857(raster1 = )
 transformedRaster <- raster.to.ESPG.3857(geeRaster)
 ```
 
@@ -45,6 +49,6 @@ rbind(original_classes, new_classes)
 ```
 ```{r}
 # Get pairwise edge pixels between 2 classes
-get_adjacencies(newRaster, what = 'unlike')
+get_adjacencies(transformedRaster, what = 'unlike')
 ```
 
