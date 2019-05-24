@@ -43,4 +43,7 @@ original_classes <- unique(geeRaster)
 new_classes <- unique(transformedRaster)
 rbind(original_classes, new_classes)
 ```
+```{r}
+get_adjacencies(newRaster, what = 'unlike')
+```
 
