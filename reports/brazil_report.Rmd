@@ -44,6 +44,7 @@ new_classes <- unique(transformedRaster)
 rbind(original_classes, new_classes)
 ```
 ```{r}
+# Get pairwise edge pixels between 2 classes
 get_adjacencies(newRaster, what = 'unlike')
 ```
 
