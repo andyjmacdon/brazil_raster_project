@@ -9,4 +9,38 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+# Necessary Libraries
+library("landscapemetrics")
+library("raster")
+library("rgdal")
+library("dplyr")
+library("here")
+
+# Import source code
+source(here("scripts", "util.R"))
+```
+
+```{r}
+# Load in raster
+geeRaster <- raster(here("data","raw","AC_acre_acrelandia_2000.tif"))
+```
+
+```{r}
+# Check current raster
+crs(geeRaster)
+```
+
+```{r}
+# Transform our raster: EPSG 4326 --> EPSG 3857
+# function used: raster.to.ESPG.3857(raster)
+transformedRaster <- raster.to.ESPG.3857(geeRaster)
+```
+
+```{r}
+# Look at all the classes
+original_classes <- unique(geeRaster)
+new_classes <- unique(transformedRaster)
+rbind(original_classes, new_classes)
+```
 
